@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent: #e977b4;
+  --accent-hover: #d764a2;
+  --bg-top: #fffdf9;
+  --bg-middle: #f9f4ef;
+  --bg-bottom: #f4ece6;
+  --glass-bg: rgba(255,255,255,0.50);
+  --glass-bg-deep: rgba(255,255,255,0.40);
+  --glass-border: #e6d9d2;
+  --glass-ring: rgba(233,119,180,0.30);
+  --max-container: 72rem;
+  --nav-height-mobile: 5rem;
+  --nav-height-desktop: 4rem;
+}
+
+html, body {
+  /* removed global snap for all sizes */
+  overscroll-behavior: auto;
+}
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+.snap-section {
+  /* neutralized */
+  scroll-snap-align: unset;
+  scroll-snap-stop: unset;
+}
+
+/* Deleted media query that re-added snap on large screens */
+/* @media (min-width:1024px){ ... } removed */
+
+body {
+  background:
+    radial-gradient(circle at 20% 0%, var(--bg-top) 0%, var(--bg-middle) 55%, var(--bg-bottom) 100%);
+  color: #2d2d2d;
+  -webkit-font-smoothing: antialiased;
+  @media (max-width: 640px) {
+    backdrop-filter: saturate(120%) contrast(103%);
+  }
+}
+
+section {
+  @apply py-20;
+}
+
+/* Utility accents */
+.btn-accent {
+  @apply rounded font-medium transition-colors;
+  background: var(--accent);
+  color: #ffffff;
+}
+.btn-accent:hover { background: var(--accent-hover); }
+
+.btn-outline-accent {
+  @apply rounded font-medium transition-colors border;
+  border-color: var(--accent);
+  color: var(--accent);
+  background: transparent;
+}
+.btn-outline-accent:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Soft card */
+.card-soft {
+  @apply rounded-xl border;
+  border-color: #e8ded7;
+  background: rgba(255,255,255,0.6);
+  position: relative;
+  backdrop-filter: saturate(140%) blur(6px);
+  transition: box-shadow .25s, transform .25s, outline-color .35s;
+}
+.card-soft:hover {
+  box-shadow: 0 8px 24px -8px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+  outline: 2px solid var(--glass-ring);
+  outline-offset: 0;
+}
+
+/* Glass panel */
+.glass {
+  background: var(--glass-bg-deep);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px) saturate(160%);
+  border-radius: 1.25rem;
+}
+.glass-surface,
+.card-soft {
+  position: relative;
+}
+.glass-surface::before,
+.card-soft::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg,rgba(255,255,255,0.25),rgba(233,119,180,0.08));
+  opacity: 0;
+  transition: opacity .5s;
+  pointer-events: none;
+}
+.glass-surface:hover::before,
+.card-soft:hover::before {
+  opacity: 1;
+}
+@media (max-width:640px){ .glass {
+  backdrop-filter: blur(10px) saturate(140%);
+}}
+
+/* Hover accent text */
+.hover-accent {
+  @apply transition-colors;
+}
+.hover-accent:hover {
+  color: var(--accent);
+}
+
+/* Fancy heading */
+.heading-gradient {
+  background: linear-gradient(90deg,#3a3a3a 0%,#c85896 55%,#e977b4 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: transform .35s, filter .35s;
+  letter-spacing: -.5px;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+}
+.heading-gradient:hover {
+  transform: translateY(-2px) scale(1.02);
+  filter: drop-shadow(0 4px 10px rgba(233,119,180,0.25));
+}
+
+/* Scale on hover for any text group */
+.text-float {
+  @apply transition-transform;
+}
+.text-float:hover {
+  transform: translateY(-3px);
+}
+
+/* Unified section background helper */
+.section-cover {
+  @apply relative overflow-hidden;
+}
+.section-cover > .bg-image {
+  @apply absolute inset-0 -z-10 bg-cover bg-center;
+}
+.section-cover > .bg-fade {
+  @apply absolute inset-0 -z-10;
+  background: linear-gradient(to bottom,rgba(255,255,255,0.8),rgba(255,255,255,0.95));
+}
+
+/* Layout helpers */
+.site-container {
+  @apply w-full mx-auto px-5 md:px-8;
+  max-width: var(--max-container);
+}
+
+.section-glass {
+  @apply relative flex flex-col justify-center min-h-[90vh] py-24;
+}
+
+.section-glass > .glass-surface {
+  background: var(--glass-bg-deep);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px) saturate(160%);
+  @apply rounded-2xl;
+}
+
+// Icon container
+.icon-wrap {
+  @apply w-11 h-11 rounded-xl flex items-center justify-center mb-3 shrink-0;
+  background: linear-gradient(145deg,#fff 0%,#f8e9f2 55%,#f2d6e6 100%);
+  box-shadow: 0 4px 14px -6px rgba(0,0,0,0.12), 0 0 0 1px #e9d6e1;
+  color: var(--accent);
+  transition: transform .35s, box-shadow .35s;
+}
+.card-soft:hover .icon-wrap {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 22px -6px rgba(0,0,0,0.18), 0 0 0 1px var(--accent);
+}
+
+// Subtle divider
+.section-divider {
+  @apply w-full h-px my-6 bg-gradient-to-r from-transparent via-rose-200/70 to-transparent;
+}
+
+// Tight overview variant (removes extra vertical space)
+.section--compact {
+  min-height: auto;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+/* Focus visibility */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Progress bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--accent);
+  width: 0%;
+  z-index: 60;
+  box-shadow: 0 0 6px var(--accent);
+}
+
+/* Container query example */
+@container card (min-width: 380px) {
+  .service-desc {
+    font-size: .8rem;
+    line-height: 1.4;
+  }
+}
+
+/* Button micro interaction */
+.btn-accent,
+.btn-outline-accent {
+  transition: transform .35s cubic-bezier(.16,.84,.44,1), background .25s, color .25s;
+}
+.btn-accent:active,
+.btn-outline-accent:active {
+  transform: scale(.96);
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hero offset helper */
+.hero-offset {
+  min-height: calc(100vh - var(--nav-height-mobile));
+}
+@media (min-width: 768px) {
+  .hero-offset {
+    min-height: calc(85vh - var(--nav-height-desktop));
+  }
+}
