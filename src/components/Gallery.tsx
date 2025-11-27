@@ -16,7 +16,7 @@ export const Gallery = () => {
     <section id="gallery" className="section-cover snap-section" data-section="gallery">
       <div className="bg-image opacity-15" style={{ backgroundImage: "url('/assets/change/2.jpg')" }} />
       <div className="bg-fade" />
-      <div className="site-container">
+      <div className="site-container content-scale">
         <h2 className="heading-gradient font-sans text-5xl md:text-6xl font-bold mb-14 text-center md:text-left">
           Gallery
         </h2>

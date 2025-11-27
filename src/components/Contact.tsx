@@ -16,7 +16,7 @@ export const Contact = ({ data }: ContactProps) => {
     <section id="contact" className="section-cover snap-section" data-section="contact">
       <div className="bg-image opacity-10" style={{ backgroundImage: "url('/assets/change/6.jpg')" }} />
       <div className="bg-fade" />
-      <div className="site-container">
+      <div className="site-container content-scale">
         <motion.h3
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}

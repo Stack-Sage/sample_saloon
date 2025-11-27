@@ -32,100 +32,64 @@ export interface SalonContent {
   tags: string[];
   links?: { label: string; url: string }[];
   plusCode?: string;
-  identity?: string; // e.g. women-owned
+  identity?: string;
+  heroQuote?: string; // short slogan / quote for hero
 }
 
 export const salonContent: SalonContent = {
-  name: "Sky Touch The Salon - Morbi",
-  tagline: "Best Salon • Hair Salon • Skin Care • Hair Spa • Hair Treatment",
+  name: "StyleLab Beauty Salon LLC",
+  tagline: "Beauty Parlour • Hair • Skin • Care",
   rating: 4.9,
-  reviewCount: 5576,
-  address: "2nd floor, Bapa Sitaram Circle (Manav Plaza), opp. Narsang Mandir, Ravapar, Morbi, Gujarat 363641, India",
-  phone: "+91 89808 91600",
-  openingHours: "Open · Closes 8:00 PM",
-  googleMapEmbedUrl: "https://www.google.com/maps?q=Sky+Touch+The+Salon+Morbi&output=embed",
-  plusCode: "QRWG+VG Morbi, Gujarat",
-  identity: "Identifies as women-owned • LGBTQ+ friendly",
+  reviewCount: 106,
+  address: "AL BUDOOR BUILDING - SHOP NO. 6 - 6th St - Naif - Deira - Dubai - United Arab Emirates",
+  phone: "+971 54 778 5921",
+  openingHours: "Open · Closes 10:00 PM",
+  googleMapEmbedUrl: "https://www.google.com/maps?q=StyleLab+Beauty+Salon+LLC+Deira+Dubai&output=embed",
+  plusCode: "78F6+X6 Dubai - United Arab Emirates",
+  website: undefined,
+  identity: undefined,
+  heroQuote: "Refined styling. Consistent care.",
   about:
-    "Sky Touch The Salon – Morbi provides advanced hair spa, precision cutting, skin care, blow dry styling, manicure–pedicure and targeted hair treatment services. Guests note consistent staff courtesy, calm child-friendly approach and skilled finishing. Services cover hair health rejuvenation, waxing by trained specialists, styling longevity focus, and comfort amenities including Wi‑Fi and beverages. Accessible features and multiple parking options support a broad client base.",
+    "StyleLab Beauty Salon LLC in Deira delivers attentive hair, skin and grooming services with polished finishing. Guests highlight professional staff, clean environment and reliable results across cuts, spa nourishment, facials and routine care. Walk-ins welcomed when slots permit; appointments advised for peak evening hours.",
   services: [
-    { title: "Precision Haircut & Styling", description: "Custom unisex cuts with shape, texture and finish detailing." },
-    { title: "Hair Spa & Treatment", description: "Deep nourishment, repair masks and scalp revitalization." },
-    { title: "Blow Dry & Finish", description: "Smooth, volume or sleek styling with longevity focus." },
-    { title: "Manicure & Pedicure", description: "Clean, shape, exfoliate and relaxing hand/foot care." },
-    { title: "Waxing (Specialist Bhumi)", description: "Comfort-oriented hygienic waxing with smooth results." },
-    { title: "Skin Care Consultation", description: "Assessment for glow, hydration and maintenance planning." },
-    { title: "Kids Haircut (Calm Care)", description: "Patient approach for young children—gentle handling." },
-    { title: "Beard Groom / Shave", description: "Trim, define and clean razor or machine finish." },
-    { title: "Express Touch-Up", description: "Quick in-between refresh: fringe, light style or polish." }
+    { title: "Precision Haircut & Styling", description: "Tailored shape and finish for daily or occasion looks." },
+    { title: "Hair Spa & Treatment", description: "Deep moisture, repair masks and scalp comfort." },
+    { title: "Glow Facial / Renewal", description: "Radiance boost and texture refinement." },
+    { title: "Waxing & Threading", description: "Hygienic gentle hair removal." },
+    { title: "Manicure & Pedicure", description: "Shape, exfoliate, cuticle care and polish." },
+    { title: "Kids Friendly Haircut", description: "Calm, patient approach for children." },
+    { title: "Express Touch-Up", description: "Quick refresh between full services." },
+    { title: "Consultation & Aftercare", description: "Product and maintenance guidance." }
   ],
   pricing: [
-    { plan: "Standard Haircut", amount: "₹ From 299" },
-    { plan: "Hair Spa Session", amount: "₹ From 799" },
-    { plan: "Manicure + Pedicure Combo", amount: "₹ From 999" },
-    { plan: "Waxing (Per Zone)", amount: "₹ From 299" }
+    { plan: "Standard Haircut", amount: "AED From 45" },
+    { plan: "Hair Spa Treatment", amount: "AED From 120" },
+    { plan: "Glow Facial", amount: "AED From 160" },
+    { plan: "Manicure + Pedicure", amount: "AED From 110" }
   ],
   gallery: [],
   reviews: [
-    {
-      author: "Client Experience",
-      rating: 5,
-      text: "Good experience for haircut—staff behaved well and finish was clean."
-    },
-    {
-      author: "Sakshi Kakade",
-      rating: 3,
-      text: "Blow dry lost effect within 20 minutes. Hoping technique longevity improves for trusted professional service."
-    },
-    {
-      author: "Archi Patel",
-      rating: 5,
-      text: "Great service and committed team—would not go elsewhere. Consistent quality."
-    }
+    { author: "Satisfied Guest", rating: 5, text: "Professional finishing and friendly staff. Will return." },
+    { author: "Regular Client", rating: 5, text: "Consistent hair spa quality and clean environment." }
   ],
-  amenities: [
-    "Restroom",
-    "Free Wi-Fi",
-    "Assistive hearing loop",
-    "Wheelchair-accessible entrance",
-    "Wheelchair-accessible seating",
-    "Wheelchair-accessible toilet",
-    "Beverages"
-  ],
-  planning: [
-    "Appointment required",
-    "Appointments recommended",
-    "Accepts walk-ins"
-  ],
-  payments: [
-    "Credit cards",
-    "Debit cards",
-    "Google Pay",
-    "NFC mobile payments"
-  ],
+  amenities: ["Restroom"],
+  planning: [],
+  payments: ["Credit cards", "Debit cards", "NFC mobile payments"],
   tags: [
-    "hair cutting",
-    "blow dry",
+    "beauty parlour",
+    "haircut",
     "hair spa",
     "hair treatment",
-    "manicure pedicure",
+    "facial",
+    "manicure",
+    "pedicure",
     "waxing",
-    "skin care",
-    "kids haircut",
-    "beard grooming",
-    "women-owned",
-    "LGBTQ+ friendly",
-    "accessible",
-    "free parking garage",
-    "free parking lot",
-    "free street parking",
-    "on-site parking",
-    "beverages",
-    "express touch-up",
-    "consultation"
+    "threading",
+    "kids friendly",
+    "express touch-up"
   ],
   links: [
-    { label: "Directions", url: "https://www.google.com/maps?q=Sky+Touch+The+Salon+Morbi" },
-    { label: "Call", url: "tel:+918980891600" }
+    { label: "Directions", url: "https://www.google.com/maps?q=StyleLab+Beauty+Salon+LLC+Deira+Dubai" },
+    { label: "Call", url: "tel:+971547785921" }
   ]
 };

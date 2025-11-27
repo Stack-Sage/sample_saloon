@@ -14,7 +14,7 @@ export const About = ({ data }: AboutProps) => {
     >
       <div className="bg-image opacity-10" style={{ backgroundImage: "url('/assets/change/1.jpg')" }} />
       <div className="bg-fade" />
-      <div className="site-container flex flex-col gap-6">
+      <div className="site-container content-scale flex flex-col gap-6">
         <motion.h3
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}

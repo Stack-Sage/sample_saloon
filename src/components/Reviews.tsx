@@ -13,7 +13,7 @@ export const Reviews = ({ data }: ReviewsProps) => {
     <section id="reviews" className="section-cover snap-section" data-section="reviews">
       <div className="bg-image opacity-10" style={{ backgroundImage: "url('/assets/change/4.jpg')" }} />
       <div className="bg-fade" />
-      <div className="site-container">
+      <div className="site-container content-scale">
         <motion.h3
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

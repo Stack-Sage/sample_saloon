@@ -42,7 +42,7 @@ export const Hero = ({ data }: HeroProps) => {
       />
       <div className="bg-fade" />
       <div className="site-container">
-        <div className="glass-surface px-5 md:px-12 pt-16 md:pt-24 lg:pt-28 pb-12 md:pb-18 flex flex-col items-center justify-center text-center gap-8 md:gap-10">
+        <div className="glass-surface content-scale px-5 md:px-12 pt-16 md:pt-24 lg:pt-28 pb-12 md:pb-18 flex flex-col items-center justify-center text-center gap-8 md:gap-10">
           <motion.h1
             id="hero-heading"
             custom={0}
@@ -63,6 +63,17 @@ export const Hero = ({ data }: HeroProps) => {
           >
             {data.tagline} • {data.rating}★ ({data.reviewCount.toLocaleString()} Reviews)
           </motion.p>
+          {data.heroQuote && (
+            <motion.p
+              custom={1.5}
+              initial="hidden"
+              animate="show"
+              variants={variants}
+              className="text-float text-[11px] sm:text-sm md:text-base text-rose-700/80 italic max-w-[60ch]"
+            >
+              “{data.heroQuote}”
+            </motion.p>
+          )}
           <motion.p
             custom={2}
             initial="hidden"

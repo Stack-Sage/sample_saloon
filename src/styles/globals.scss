@@ -3,18 +3,46 @@
 @tailwind utilities;
 
 :root {
-  --accent: #e977b4;
-  --accent-hover: #d764a2;
-  --bg-top: #fffdf9;
-  --bg-middle: #f9f4ef;
-  --bg-bottom: #f4ece6;
-  --glass-bg: rgba(255,255,255,0.50);
-  --glass-bg-deep: rgba(255,255,255,0.40);
-  --glass-border: #e6d9d2;
-  --glass-ring: rgba(233,119,180,0.30);
+  /* Accent tones */
+  --accent: #e45a9b;            /* deeper rose-pink */
+  --accent-hover: #ffc3e0;
+  --accent-dark: #b23a73;
+
+  /* Neutral helpers */
+  --neutral-50: #faf6f2;
+  --neutral-100: #efe7df;
+
+  /* Background gradient (richer warm pastels) */
+  --bg-top: #f3d7c8;            /* warm peach top */
+  --bg-middle: #f6c3d6;         /* soft rose center */
+  --bg-bottom: #e5bbff;         /* lilac blush bottom */
+
+  /* Glass surfaces (slightly deeper) */
+  --glass-bg: rgba(255,255,255,0.55);
+  --glass-bg-deep: rgba(255,255,255,0.46);
+  --glass-border: #e0cfd0;
+  --glass-ring: rgba(228,90,155,0.32);
+
   --max-container: 72rem;
   --nav-height-mobile: 5rem;
   --nav-height-desktop: 4rem;
+}
+
+/* Global typography scale */
+html {
+  font-size: 17px; /* was browser default ~16px */
+}
+@media (min-width: 640px) {
+  html { font-size: 17.5px; }
+}
+@media (min-width: 768px) {
+  html { font-size: 18px; }
+}
+@media (min-width: 1024px) {
+  html { font-size: 18.5px; }
+}
+@media (min-width: 1280px) {
+  html { font-size: 19px; }
 }
 
 html, body {
@@ -23,7 +51,7 @@ html, body {
 }
 ::selection {
   background: var(--accent);
-  color: #fff;
+  color: #ffffff;
 }
 .snap-section {
   /* neutralized */
@@ -36,9 +64,11 @@ html, body {
 
 body {
   background:
-    radial-gradient(circle at 20% 0%, var(--bg-top) 0%, var(--bg-middle) 55%, var(--bg-bottom) 100%);
+    radial-gradient(circle at 20% 0%, var(--bg-top) 0%, var(--bg-middle) 45%, var(--bg-bottom) 100%),
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
   color: #2d2d2d;
   -webkit-font-smoothing: antialiased;
+  line-height: 1.7; /* slightly larger for readability */
   @media (max-width: 640px) {
     backdrop-filter: saturate(120%) contrast(103%);
   }
@@ -56,10 +86,11 @@ section {
 }
 .btn-accent:hover { background: var(--accent-hover); }
 
+/* Outline button accent-dark for better contrast */
 .btn-outline-accent {
   @apply rounded font-medium transition-colors border;
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--accent-dark);
+  color: var(--accent-dark);
   background: transparent;
 }
 .btn-outline-accent:hover {
@@ -83,11 +114,11 @@ section {
   outline-offset: 0;
 }
 
-/* Glass panel */
+/* Glass panel slightly deeper */
 .glass {
   background: var(--glass-bg-deep);
   border: 1px solid var(--glass-border);
-  backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(165%);
   border-radius: 1.25rem;
 }
 .glass-surface,
@@ -123,7 +154,7 @@ section {
 
 /* Fancy heading */
 .heading-gradient {
-  background: linear-gradient(90deg,#3a3a3a 0%,#c85896 55%,#e977b4 100%);
+  background: linear-gradient(100deg,#3a3a3a 0%,#b23a73 40%,#e45a9b 70%,#e9c6ff 100%);
   -webkit-background-clip: text;
   color: transparent;
   transition: transform .35s, filter .35s;
@@ -152,7 +183,11 @@ section {
 }
 .section-cover > .bg-fade {
   @apply absolute inset-0 -z-10;
-  background: linear-gradient(to bottom,rgba(255,255,255,0.8),rgba(255,255,255,0.95));
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.78),
+    rgba(255,255,255,0.92)
+  );
 }
 
 /* Layout helpers */
@@ -175,8 +210,8 @@ section {
 // Icon container
 .icon-wrap {
   @apply w-11 h-11 rounded-xl flex items-center justify-center mb-3 shrink-0;
-  background: linear-gradient(145deg,#fff 0%,#f8e9f2 55%,#f2d6e6 100%);
-  box-shadow: 0 4px 14px -6px rgba(0,0,0,0.12), 0 0 0 1px #e9d6e1;
+  background: linear-gradient(145deg,#fff 0%,#f3d7c8 55%,#f6c3d6 100%);
+  box-shadow: 0 4px 14px -6px rgba(0,0,0,0.12), 0 0 0 1px #ead6e4;
   color: var(--accent);
   transition: transform .35s, box-shadow .35s;
 }
@@ -187,7 +222,8 @@ section {
 
 // Subtle divider
 .section-divider {
-  @apply w-full h-px my-6 bg-gradient-to-r from-transparent via-rose-200/70 to-transparent;
+  @apply w-full h-px my-6;
+  background: linear-gradient(to right, transparent, rgba(178,58,115,0.45), transparent);
 }
 
 // Tight overview variant (removes extra vertical space)
@@ -261,4 +297,10 @@ section {
   .hero-offset {
     min-height: calc(85vh - var(--nav-height-desktop));
   }
+}
+
+/* Slightly larger content text scale */
+.content-scale {
+  font-size: clamp(1rem, 1.02rem + 0.2vw, 1.15rem);
+  line-height: 1.7;
 }
